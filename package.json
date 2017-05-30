@@ -1,0 +1,55 @@
+{
+  "name": "react-x-ray",
+  "version": "1.0.0-0",
+  "description": "CSS layout debugger component",
+  "main": "dist/XRay.js",
+  "scripts": {
+    "prepublish": "babel src -d dist",
+    "start": "webpack-dev-server",
+    "docs": "NODE_ENV=production webpack",
+    "test": "ava"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "ui",
+    "development",
+    "style",
+    "css"
+  ],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "chroma-js": "^1.3.4",
+    "glamor": "^2.20.25",
+    "object-assign": "^4.1.1",
+    "prop-types": "^15.5.10"
+  },
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "axs": "^1.0.6",
+    "axs-ui": "^1.0.4",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "funcup": "^1.0.0-0",
+    "geomicons-open": "^3.0.0-beta.1",
+    "palx": "^1.0.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-live": "^1.5.3",
+    "react-test-renderer": "^15.5.4",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "false": {}
+}
