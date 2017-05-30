@@ -27,7 +27,8 @@ const initialState = {
   backgroundColor: '#00483b',
   grid: 16,
   outline: true,
-  disabled: true
+  disabled: true,
+  center: false
 }
 
 export default createProvider(initialState)(App)

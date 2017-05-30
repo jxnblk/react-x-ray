@@ -11,6 +11,7 @@ import {
 import {
   toggleXRay,
   toggleOutline,
+  toggleCenter,
   setGrid,
   setColor,
   setBackgroundColor
@@ -40,6 +41,16 @@ const Controls = props => (
             mr1
           />
           Outline
+        </Label>
+      </Box>
+      <Box p2>
+        <Label>
+          <Checkbox
+            checked={props.center}
+            onChange={e => props.update(toggleCenter)}
+            mr1
+          />
+          Center
         </Label>
       </Box>
       <Box p2 width={256}>

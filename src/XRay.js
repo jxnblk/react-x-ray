@@ -40,6 +40,7 @@ class XRay extends React.Component {
         padding,
         color,
         backgroundColor,
+        backgroundPosition: center ? 'center center' : 'left top',
         '& *': {
           color: outline ? `${color} !important` : null,
           outline: outline ? `1px solid ${alpha(color, 1/2)} !important` : null,

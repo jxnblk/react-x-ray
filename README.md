@@ -31,6 +31,7 @@ const App = props => (
 
 - `grid` (number or boolean) pixel dimensions of background grid
 - `outline` (boolean) show element outlines
+- `center` (boolean) center the background grid
 - `color` (string) base color for grid and outlines
 - `backgroundColor` (string) background color of XRay component
 
