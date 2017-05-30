@@ -7385,6 +7385,9 @@ var toggleXRay = exports.toggleXRay = function toggleXRay(state) {
 var toggleOutline = exports.toggleOutline = function toggleOutline(state) {
   return { outline: !state.outline };
 };
+var toggleCenter = exports.toggleCenter = function toggleCenter(state) {
+  return { center: !state.center };
+};
 var setGrid = exports.setGrid = function setGrid(n) {
   return function (state) {
     return { grid: n };
@@ -15232,7 +15235,8 @@ var initialState = {
   backgroundColor: '#00483b',
   grid: 16,
   outline: true,
-  disabled: true
+  disabled: true,
+  center: false
 };
 
 exports.default = (0, _funcup.createProvider)(initialState)(App);
@@ -16470,6 +16474,22 @@ var Controls = function Controls(props) {
       ),
       _react2.default.createElement(
         _axsUi.Box,
+        { p2: true },
+        _react2.default.createElement(
+          _axsUi.Label,
+          null,
+          _react2.default.createElement(_axsUi.Checkbox, {
+            checked: props.center,
+            onChange: function onChange(e) {
+              return props.update(_updaters.toggleCenter);
+            },
+            mr1: true
+          }),
+          'Center'
+        )
+      ),
+      _react2.default.createElement(
+        _axsUi.Box,
         { p2: true, width: 256 },
         _react2.default.createElement(
           _axsUi.Label,
@@ -16870,6 +16890,7 @@ var XRay = function (_React$Component) {
         padding: padding,
         color: color,
         backgroundColor: backgroundColor,
+        backgroundPosition: center ? 'center center' : 'left top',
         '& *': {
           color: outline ? color + ' !important' : null,
           outline: outline ? '1px solid ' + (0, _util.alpha)(color, 1 / 2) + ' !important' : null,
