@@ -31,9 +31,9 @@ class XRay extends React.Component {
       } = this.props
 
       if (disabled) {
-        return {
+        return assign({}, style, {
           padding
-        }
+        })
       }
 
       return assign({}, style, {
