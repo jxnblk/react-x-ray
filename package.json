@@ -5,8 +5,8 @@
   "main": "dist/XRay.js",
   "scripts": {
     "prepublish": "babel src -d dist",
-    "start": "webpack-dev-server",
-    "docs": "NODE_ENV=production webpack",
+    "start": "export NODE_ENV=development && webpack-dev-server",
+    "docs": "export NODE_ENV=production && webpack",
     "test": "ava"
   },
   "keywords": [
