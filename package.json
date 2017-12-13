@@ -28,8 +28,6 @@
   "devDependencies": {
     "@compositor/x0": "^3.0.0-6",
     "ava": "^0.24.0",
-    "axs": "^1.0.6",
-    "axs-ui": "^1.0.4",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-register": "^6.24.1",

@@ -2,28 +2,10 @@ import React from 'react'
 import {
   Flex,
   Box,
-  Button,
   Input,
-} from 'axs-ui'
+} from 'rebass'
+import nano from 'nano-style'
 import colors from './colors'
-
-const Chip = props => (
-  <Button
-    css={{
-      display: 'block',
-      width: props.size || 24,
-      height: props.size || 24,
-      backgroundColor: props.value,
-      borderRadius: 0,
-      ':hover': {
-        backgroundColor: props.value,
-        transform: `scale(${9/8})`,
-        boxShadow: '0 0 4px rgba(0,0,0,.25)'
-      }
-    }}
-    onClick={props.onClick}
-  />
-)
 
 class ColorPicker extends React.Component {
   constructor () {
@@ -40,7 +22,7 @@ class ColorPicker extends React.Component {
     const { open } = this.state
 
     return (
-      <Box css={css.root}>
+      <Root>
         <Flex>
           <Chip
             value={value}
@@ -53,13 +35,10 @@ class ColorPicker extends React.Component {
           />
         </Flex>
         {open && (
-          <Box
-            css={css.overlay}
-            onClick={this.toggle}
-          />
+          <Overlay onClick={this.toggle} />
         )}
         {open && (
-          <Box css={css.menu}>
+          <Menu>
             {colors.map((hue, i) => (
               <Flex key={i}>
                 {[...hue.value].reverse().map((shade, j) => (
@@ -75,35 +54,51 @@ class ColorPicker extends React.Component {
                 ))}
               </Flex>
             ))}
-          </Box>
+          </Menu>
         )}
-      </Box>
+      </Root>
     )
   }
 }
 
-const css = {
-  root: {
-    position: 'relative'
-  },
-  overlay: {
-    position: 'fixed',
-    zIndex: 1,
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-  },
-  menu: {
-    position: 'absolute',
-    zIndex: 2,
-    bottom: '100%',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    padding: 2,
-    backgroundColor: '#fff',
-    boxShadow: '0 0 32px rgba(0,0,0,.25)'
+const Root = nano('div')({
+  position: 'relative'
+})
+
+const Overlay = nano('div')({
+  position: 'fixed',
+  zIndex: 1,
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+})
+
+const Menu = nano('div')({
+  position: 'absolute',
+  zIndex: 2,
+  bottom: '100%',
+  left: '50%',
+  transform: 'translateX(-50%)',
+  padding: 2,
+  backgroundColor: '#fff',
+  boxShadow: '0 0 32px rgba(0,0,0,.25)'
+})
+
+const Chip = nano('button')(props => ({
+  display: 'block',
+  width: px(props.size || 24),
+  height: px(props.size || 24),
+  backgroundColor: props.value,
+  borderRadius: 0,
+  border: 0,
+  '&:hover': {
+    backgroundColor: props.value,
+    transform: `scale(${9/8})`,
+    boxShadow: '0 0 4px rgba(0,0,0,.25)'
   }
-}
+}))
+
+const px = n => n + 'px'
 
 export default ColorPicker
