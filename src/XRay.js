@@ -1,5 +1,4 @@
-import React from 'react'
-import { css } from 'glamor'
+import nano from 'nano-style'
 import assign from 'object-assign'
 import {
   string,
@@ -9,57 +8,28 @@ import {
 } from 'prop-types'
 import { gradient, alpha } from './util'
 
-class XRay extends React.Component {
-  constructor () {
-    super()
-
-    this.getClassName = () => {
-      const sx = this.getStyle()
-      return css(sx).toString()
+const XRay = nano('div')(({
+  padding,
+  color,
+  backgroundColor,
+  outline,
+  grid,
+  center,
+  disabled,
+  style
+}) => disabled
+  ? assign({}, style, { padding })
+  : assign({}, style, {
+    padding,
+    color,
+    backgroundColor,
+    backgroundPosition: center ? 'center center' : 'left top',
+    '& *': {
+      color: outline ? `${color} !important` : null,
+      outline: outline ? `1px solid ${alpha(color, 1/2)} !important` : null,
+      backgroundColor: outline ? `${alpha(color, 1/8)} !important` : null,
     }
-
-    this.getStyle = () => {
-      const {
-        padding,
-        color,
-        backgroundColor,
-        outline,
-        grid,
-        center,
-        disabled,
-        style
-      } = this.props
-
-      if (disabled) {
-        return assign({}, style, {
-          padding
-        })
-      }
-
-      return assign({}, style, {
-        padding,
-        color,
-        backgroundColor,
-        backgroundPosition: center ? 'center center' : 'left top',
-        '& *': {
-          color: outline ? `${color} !important` : null,
-          outline: outline ? `1px solid ${alpha(color, 1/2)} !important` : null,
-          backgroundColor: outline ? `${alpha(color, 1/8)} !important` : null,
-        }
-      }, getGrid(grid, alpha(color, 1/4)))
-    }
-  }
-
-  render () {
-    const className = this.getClassName()
-
-    return (
-      <div className={className}>
-        {this.props.children}
-      </div>
-    )
-  }
-}
+  }, getGrid(grid, alpha(color, 1/4))))
 
 const getGrid = (grid, color) => {
   if (!grid) return null

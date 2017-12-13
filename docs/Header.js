@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'funcup'
-import XRay from 'react-x-ray'
+import XRay from '../src/XRay'
 import {
   Flex,
   Box,
