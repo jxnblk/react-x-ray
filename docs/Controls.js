@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'funcup'
+import connect from 'refunk'
 import {
   Flex,
   Box,
@@ -83,4 +83,4 @@ const Controls = props => (
   </Box>
 )
 
-export default connect()(Controls)
+export default connect(Controls)

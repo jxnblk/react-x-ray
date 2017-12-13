@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'funcup'
+import connect from 'refunk'
 import XRay from '../src/XRay'
 import {
   Flex,
@@ -82,4 +82,4 @@ const css = {
   }
 }
 
-export default connect()(Header)
+export default connect(Header)

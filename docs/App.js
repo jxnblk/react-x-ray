@@ -1,5 +1,5 @@
 import React from 'react'
-import { createProvider } from 'funcup'
+import connect from 'refunk'
 import {
   Flex,
   Box,
@@ -10,7 +10,7 @@ import Header from './Header'
 import Controls from './Controls'
 import Footer from './Footer'
 
-class App extends React.Component {
+const App = connect(class extends React.Component {
   render () {
     return (
       <div>
@@ -20,9 +20,9 @@ class App extends React.Component {
       </div>
     )
   }
-}
+})
 
-const initialState = {
+App.defaultProps = {
   color: '#00ffd0',
   backgroundColor: '#00483b',
   grid: 16,
@@ -31,4 +31,4 @@ const initialState = {
   center: false
 }
 
-export default createProvider(initialState)(App)
+export default App

@@ -5,8 +5,8 @@
   "main": "dist/XRay.js",
   "scripts": {
     "prepublish": "babel src -d dist",
-    "start": "webpack-dev-server",
-    "docs": "NODE_ENV=production webpack",
+    "start": "x0 dev docs/App.js -o",
+    "docs": "x0 build docs/App.js -d docs",
     "test": "ava"
   },
   "keywords": [
@@ -26,24 +26,21 @@
     "prop-types": "^15.6.0"
   },
   "devDependencies": {
+    "@compositor/x0": "^3.0.0-6",
     "ava": "^0.24.0",
     "axs": "^1.0.6",
     "axs-ui": "^1.0.4",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
-    "funcup": "^1.0.0-0",
     "geomicons-open": "^3.0.0-beta.2",
     "palx": "^1.0.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-live": "^1.5.3",
     "react-test-renderer": "^16.2.0",
-    "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.9.7"
+    "rebass": "^1.0.4",
+    "refunk": "^2.0.0"
   },
   "ava": {
     "require": [
