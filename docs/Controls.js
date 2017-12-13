@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'funcup'
+import connect from 'refunk'
 import {
   Flex,
   Box,
@@ -7,7 +7,7 @@ import {
   Label,
   Checkbox,
   Slider,
-} from 'axs-ui'
+} from 'rebass'
 import {
   toggleXRay,
   toggleOutline,
@@ -19,41 +19,39 @@ import {
 import ColorPicker from './ColorPicker'
 
 const Controls = props => (
-  <Box p3>
-    <Flex
-      alignItems='center'
-      flexWrap='wrap'>
-      <Box p2>
-        <Label>
+  <Box p={3}>
+    <Flex align='center' wrap>
+      <Box p={2}>
+        <Label m={0}>
           <Checkbox
             checked={!props.disabled}
             onChange={e => props.update(toggleXRay)}
-            mr1
+            mr={1}
           />
           Enable X-Ray
         </Label>
       </Box>
-      <Box ml='auto' p2>
+      <Box ml='auto' p={2}>
         <Label>
           <Checkbox
             checked={props.outline}
             onChange={e => props.update(toggleOutline)}
-            mr1
+            mr={2}
           />
           Outline
         </Label>
       </Box>
-      <Box p2>
+      <Box p={2}>
         <Label>
           <Checkbox
             checked={props.center}
             onChange={e => props.update(toggleCenter)}
-            mr1
+            mr={1}
           />
           Center
         </Label>
       </Box>
-      <Box p2 width={256}>
+      <Box p={2} width={256}>
         <Label>
           Grid Size ({props.grid}px)
         </Label>
@@ -65,14 +63,14 @@ const Controls = props => (
           onChange={e => props.update(setGrid(parseInt(e.target.value)))}
         />
       </Box>
-      <Box p2>
+      <Box p={2}>
         <Label>Color</Label>
         <ColorPicker
           value={props.color}
           onChange={v => props.update(setColor(v))}
         />
       </Box>
-      <Box p2>
+      <Box p={2}>
         <Label>Background Color</Label>
         <ColorPicker
           value={props.backgroundColor}
@@ -83,4 +81,4 @@ const Controls = props => (
   </Box>
 )
 
-export default connect()(Controls)
+export default connect(Controls)

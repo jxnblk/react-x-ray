@@ -3,34 +3,32 @@ import {
   Flex,
   Box,
   Text
-} from 'axs-ui'
+} from 'rebass'
+import nano from 'nano-style'
+import { space } from 'styled-system'
 
-const Link = props => (
-  <Text
-    {...props}
-    css={{
-      textDecoration: 'none',
-      fontWeight: 600,
-      fontSize: 14,
-      ':hover': {
-        textDecoration: 'underline'
-      }
-    }}
-  />
-)
+const Link = nano('a')({
+  textDecoration: 'none',
+  fontWeight: 600,
+  fontSize: '14px',
+  color: 'inherit',
+  ':hover': {
+    textDecoration: 'underline'
+  }
+}, space)
 
 const Footer = props => (
-  <Flex is='footer' p3 alignItems='baseline'>
-    <Link mr2 href='https://github.com/jxnblk/react-x-ray'>
+  <Flex is='footer' p={3} align='baseline'>
+    <Link mr={2} href='https://github.com/jxnblk/react-x-ray'>
       GitHub
     </Link>
-    <Link mr2 href='http://jxnblk.com'>
+    <Link mr={2} href='http://jxnblk.com'>
       Made by Jxnblk
     </Link>
-    <Text fontSize={5}>
+    <Text fontSize={1}>
       Inspired by
-      <Text is='a'
-        css={{ color: 'inherit' }}
+      {' '}
+      <Link
         href='http://tachyons.io/xray/'
         children='Tachyons X-RAY'
       />

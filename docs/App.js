@@ -1,28 +1,26 @@
 import React from 'react'
-import { createProvider } from 'funcup'
-import {
-  Flex,
-  Box,
-  Heading,
-  Text
-} from 'axs-ui'
+import connect from 'refunk'
+import Rebass from 'rebass'
 import Header from './Header'
 import Controls from './Controls'
 import Footer from './Footer'
 
-class App extends React.Component {
+const App = connect(class extends React.Component {
   render () {
     return (
-      <div>
-        <Header />
-        <Controls />
-        <Footer />
-      </div>
+      <React.Fragment>
+        {style}
+        <Rebass.Provider>
+          <Header />
+          <Controls />
+          <Footer />
+        </Rebass.Provider>
+      </React.Fragment>
     )
   }
-}
+})
 
-const initialState = {
+App.defaultProps = {
   color: '#00ffd0',
   backgroundColor: '#00483b',
   grid: 16,
@@ -31,4 +29,10 @@ const initialState = {
   center: false
 }
 
-export default createProvider(initialState)(App)
+const style = <style
+  dangerouslySetInnerHTML={{
+    __html: `*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.5;margin:0}`
+  }}
+/>
+
+export default App
