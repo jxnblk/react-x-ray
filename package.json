@@ -6,7 +6,7 @@
   "scripts": {
     "prepublish": "babel src -d dist",
     "start": "x0 dev docs/App.js -o",
-    "docs": "x0 build docs/App.js -d docs --cssLibrary='styled-components'",
+    "docs": "x0 build docs/App.js -d docs",
     "test": "ava"
   },
   "keywords": [
@@ -46,5 +46,8 @@
     ],
     "babel": "inherit"
   },
-  "false": {}
+  "x0": {
+    "basename": "/react-x-ray",
+    "cssLibrary": "styled-components"
+  }
 }
